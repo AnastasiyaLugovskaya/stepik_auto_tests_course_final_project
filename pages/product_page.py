@@ -26,7 +26,7 @@ class ShellcodersHandbookPage(BasePage):
         self.should_be_successful_message()
         title = self.browser.find_element(*ProductPageLocators.BOOK_TITLE).text
         message = self.browser.find_element(*ProductPageLocators.SUCCESSFUL_MESSAGE).text
-        assert title in message, "Название книги не содержится в сообщении"
+        assert title == message, "Название книги не содержится в сообщении"
 
     def should_be_basket_cost_message(self):
         assert self.is_element_present(*ProductPageLocators.BASKET_COST_MESSAGE), \

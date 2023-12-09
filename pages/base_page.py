@@ -22,12 +22,8 @@ class BasePage:
         return True
 
     def solve_quiz_and_get_code(self):
-        alert = self.browser.switch_to.alert
-        x = alert.text.split(" ")[2]
-        answer = str(math.log(abs((12 * math.sin(float(x))))))
-        alert.send_keys(answer)
-        alert.accept()
-        WebDriverWait(self.browser, 5).until(EC.alert_is_present())
+        self.solve_quiz_and_get_code_for_parametrize()
+        WebDriverWait(self.browser, 10).until(EC.alert_is_present())
         try:
             alert = self.browser.switch_to.alert
             alert_text = alert.text
@@ -37,3 +33,10 @@ class BasePage:
             print("No second alert presented")
             return False
         return True
+
+    def solve_quiz_and_get_code_for_parametrize(self):
+        alert = self.browser.switch_to.alert
+        x = alert.text.split(" ")[2]
+        answer = str(math.log(abs((12 * math.sin(float(x))))))
+        alert.send_keys(answer)
+        alert.accept()
