@@ -7,7 +7,8 @@ class MainPageLocators:
 
 class LoginPageLocators:
     LOGIN_FORM = (By.CSS_SELECTOR, "#login_form")
-    REGISTER_FORM = (By.CSS_SELECTOR, "register_form")
+    REGISTER_FORM = (By.CSS_SELECTOR, "#register_form")
+    LOGIN_PAGE_URL = 'http://selenium1py.pythonanywhere.com/en-gb/accounts/login/'
 
 
 class ProductPageLocators:
@@ -18,3 +19,8 @@ class ProductPageLocators:
     SUCCESSFUL_MESSAGE = (By.CSS_SELECTOR, "#messages div:first-child div:nth-child(2)>strong")
     BASKET_COST_MESSAGE = (By.CSS_SELECTOR, "#messages div:nth-child(3)>div>p")
     PRICE_IN_MESSAGE = (By.CSS_SELECTOR, "#messages div:nth-child(3)>div>p>strong")
+
+
+class BasePageLocators():
+    LOGIN_LINK = (By.CSS_SELECTOR, "#login_link")
+    LOGIN_LINK_INVALID = (By.CSS_SELECTOR, "#login_link_inc")
