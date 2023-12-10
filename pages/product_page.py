@@ -2,7 +2,7 @@ from .base_page import BasePage
 from .locators import ProductPageLocators
 
 
-class ShellcodersHandbookPage(BasePage):
+class ProductPage(BasePage):
     def should_be_add_to_basket_button(self):
         assert self.is_element_present(*ProductPageLocators.ADD_TO_BASKET_BUTTON), \
             "Кнопка 'Добавить в корзину' не найдена"
@@ -31,3 +31,11 @@ class ShellcodersHandbookPage(BasePage):
     def should_be_basket_cost_message(self):
         assert self.is_element_present(*ProductPageLocators.BASKET_COST_MESSAGE), \
             "Нет сообщения о стоимости корзины"
+
+    def should_not_be_success_message(self):
+        assert self.is_not_element_present(*ProductPageLocators.SUCCESSFUL_MESSAGE), \
+            "Отображается сообщение об успешном добавлении товара в корзину, но не должно отображаться"
+
+    def should_disappear_success_message(self):
+        assert self.is_disappeared(*ProductPageLocators.SUCCESSFUL_MESSAGE), \
+            "Сообщение об успешном добавлении товара в корзину не исчезло после таймаута"
