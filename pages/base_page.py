@@ -44,6 +44,10 @@ class BasePage:
     def open(self):
         self.browser.get(self.url)
 
+    def should_be_authorized_user(self):
+        assert self.is_element_present(*BasePageLocators.USER_ICON), "Отсутствует иконка юзера," \
+                                                                     " юзер вероятно не авторизован"
+
     def should_be_login_link(self):
         assert self.is_element_present(*BasePageLocators.LOGIN_LINK), "Нет ссылки для логина"
 
@@ -56,7 +60,7 @@ class BasePage:
             print(f"Your code: {alert_text}")
             alert.accept()
         except NoAlertPresentException:
-            print("No second alert presented")
+            print("Отсутствует второй алерт")
             return False
         return True
 
