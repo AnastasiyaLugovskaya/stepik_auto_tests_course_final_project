@@ -5,6 +5,12 @@ class BasePageLocators:
     LOGIN_LINK = (By.CSS_SELECTOR, "#login_link")
     LOGIN_LINK_INVALID = (By.CSS_SELECTOR, "#login_link_inc")
     USER_ICON = (By.CSS_SELECTOR, 'i.icon-user')
+    VIEW_BASKET_BUTTON = (By.CSS_SELECTOR, '.btn-group a[href="/en-gb/basket/"]')
+
+
+class BasketPageLocators:
+    EMPTY_BASKET = (By.CSS_SELECTOR, '#content_inner p a')
+    ITEM_LIST = (By.CSS_SELECTOR, '#basket_formset')
 
 
 class LoginPageLocators:
